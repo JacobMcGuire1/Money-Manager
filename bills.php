@@ -1,5 +1,5 @@
 
-<?php
+<?php /* Displays the list of bills that the user has. */
   include ("security.php");
   if (isset($_SESSION['id'])) {
     //Renders table

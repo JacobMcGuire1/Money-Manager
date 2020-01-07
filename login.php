@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php 
+<?php /* Securely logs the user in, with password encryption. */
           
           if ( isset( $_POST['submit'] ) ) { 
             session_start();

@@ -1,3 +1,4 @@
+--Some example data used for testing.
 INSERT INTO users VALUES(NULL, "AlanA", "2132", "5");
 INSERT INTO users VALUES(NULL, "Shore", "password12", "5");
 INSERT INTO users VALUES(NULL, "PErson", "321", "5");

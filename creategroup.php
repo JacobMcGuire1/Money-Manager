@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php
+<?php /* Creates the group, and adds the creator to it. */
             session_start();
             include ("database.php");
             $database = new Database();
@@ -9,7 +9,6 @@
                                    
               $name = $_POST['name'];
              
-              //$sql = "INSERT INTO groups VALUES(NULL,:name,:user_id);";
               $stmt = $database->prepare("INSERT INTO groups VALUES(NULL,:name,:user_id);");
               
               $stmt->bindValue(':user_id', $_SESSION["id"], SQLITE3_INTEGER);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php
+<?php /* The root of the website */
             session_start();
             include ("database.php");
             include ("security.php");

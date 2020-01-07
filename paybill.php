@@ -1,4 +1,4 @@
-<?php
+<?php /* Marks the user's contribution to the bill as paid. */
   session_start();
   include ("database.php");
   $database = new Database();

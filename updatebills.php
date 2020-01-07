@@ -1,5 +1,5 @@
 
-<?php
+<?php /* Updates the bill based on changes a user has made on the front end. */
   $output = "";
   session_start();
   include ("database.php");

@@ -1,4 +1,4 @@
-<?php
+<?php /* The functions used to access and manipulate the database. */
 class Database {
 		
 	private $database;

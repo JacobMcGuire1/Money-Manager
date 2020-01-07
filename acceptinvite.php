@@ -1,4 +1,4 @@
-<?php
+<?php /* Adds the user to the group the invite is from. */
   session_start();
   include ("database.php");
   $database = new Database();

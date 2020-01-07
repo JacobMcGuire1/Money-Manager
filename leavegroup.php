@@ -1,4 +1,4 @@
-<?php
+<?php /* Leaves the group and either passes on leadership to another member or deletes the group if there was only 1 person in it. */
   session_start();
   include ("database.php");
   $database = new Database();

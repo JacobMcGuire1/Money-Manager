@@ -8,11 +8,14 @@ CREATE TABLE bills(id integer NOT NULL primary key, name varchar(50) NOT NULL, c
 drop table groups;
 CREATE TABLE groups(id integer NOT NULL primary key, name varchar(50) NOT NULL, creator_id integer NOT NULL, foreign key(creator_id) references users(id));
 
+--Relations between a user and a bill storing how much they owe.
 drop table owage;
 CREATE TABLE owage(id integer NOT NULL primary key, bill_id integer NOT NULL, user_id integer NOT NULL, cost real NOT NULL, paid boolean NOT NULL, foreign key(bill_id) references bills(id), foreign key(user_id) references users(id));
 
+--Members of groups.
 drop table groupage;
 CREATE TABLE groupage(id integer NOT NULL primary key, user_id integer NOT NULL, group_id integer NOT NULL, foreign key(group_id) references groups(id), foreign key(user_id) references users(id));
 
+--Invites to groups. References invited member and group id.
 drop table invites;
 CREATE TABLE invites(id integer NOT NULL primary key, user_id integer NOT NULL, group_id integer NOT NULL, foreign key(group_id) references groups(id), foreign key(user_id) references users(id));

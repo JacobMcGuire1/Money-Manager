@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php 
+<?php /* Registers a new user account */
           if ( isset( $_POST['submit'] ) ) { 
             session_start();
             require ("database.php");

@@ -1,5 +1,5 @@
 
-<?php
+<?php /* Creates a new bill in the creator's group with the specified owed amount for each member. */
   session_start();
   include ("security.php");
   include ("database.php");
@@ -24,21 +24,12 @@
   $members = $stmt->execute();
 
   while(($row = $members->fetchArray())) {
-    /*echo "Bill id: ". $billid[0];
-    echo ", user id: ";
-    echo $row['user_id'];
-    echo ", cost: ";
-    echo $_POST[$row['user_id']];*/
     $stmt = $database->prepare("INSERT INTO owage VALUES(NULL,:bill_id,:user_id,:cost,0);");         
     $stmt->bindValue(':bill_id', $billid[0], SQLITE3_INTEGER);
     $stmt->bindValue(':user_id', $row['user_id'], SQLITE3_INTEGER);
     $stmt->bindValue(':cost', $_POST[$row['user_id']] * 100, SQLITE3_INTEGER);
     $stmt->execute();
-    
-    //mail($row['email'], "New bill added: ". $_POST['name'], "This will cost: £". $_POST[$row['user_id']] * 100);
   }
-  //echo "row[8]: ". $_POST[$row[8]];
-  //echo "row[9]: ". $_POST[$row[9]];
   header("Location: index.php");
   die();
 ?>

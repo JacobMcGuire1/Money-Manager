@@ -1,4 +1,4 @@
-<?php
+<?php /* The navigation bar on the left of the website. Allows the user to view and manipulate their group. */
   session_start();
   echo "<script src='js/jquery-3.3.1.min.js'></script>";
   include ("security.php");

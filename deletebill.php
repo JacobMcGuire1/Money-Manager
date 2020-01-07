@@ -1,4 +1,4 @@
-<?php
+<?php /* Deletes the specified bill. */
   session_start();
   include ("database.php");
   $database = new Database();
@@ -12,7 +12,7 @@
   $stmt->bindValue(':billid', $_GET["id"], SQLITE3_INTEGER);
   $billtargets = $stmt->execute();
 
-  //get user's group
+  //Get the user's group
   $stmt = $database->prepare("SELECT group_id from groupage WHERE user_id = :user;");
   $stmt->bindValue(':user', $_SESSION["id"], SQLITE3_INTEGER);
   $groupid = $stmt->execute()->fetchArray();
@@ -41,7 +41,8 @@
     $isgroupandbillowner = False;
   }
 
-  if ($billcreator[0] == $_SESSION['id'] || $isgroupandbillowner){  //i am group creator and all people who owe are members of this group){
+  /* If the user has permission, the group is deleted. */
+  if ($billcreator[0] == $_SESSION['id'] || $isgroupandbillowner){  //The user is the group creator and all people who owe to the bill are members of this group
     $stmt = $database->prepare("DELETE from bills WHERE id = :billid;");
     $stmt->bindValue(':billid', $_GET['id'], SQLITE3_INTEGER);
     $stmt->execute();

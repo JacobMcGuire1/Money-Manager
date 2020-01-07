@@ -1,4 +1,4 @@
-<?php
+<?php /* Used by the js on the front end to get the rows that show what each person owes to a bill. */
   session_start();
   include ("database.php");
   $database = new Database();

@@ -1,11 +1,11 @@
 
-<?php
+<?php /* Invites the specified user to the group, if they exist. */
   session_start();
   include ("database.php");
   $database = new Database();
   $database->__construct();
   
-  //Sends and invite
+  //Sends an invite
   
   $stmt = $database->prepare("SELECT id from users WHERE username = :username;");
   $stmt->bindValue(':username', $_POST['name'], SQLITE3_TEXT);
